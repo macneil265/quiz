@@ -57,6 +57,7 @@ const submitBtn = document.getElementById("submit");
 
 
 let currentQuiz = 0;
+let answer = 0;
 
 loadQuiz();
 
@@ -68,12 +69,35 @@ function loadQuiz() {
     b_text.innerText = currentQuizData.b;
     c_text.innerText = currentQuizData.c;
     d_text.innerText = currentQuizData.d;
+}
+//code for the answer
+function getSelected(){
+    const answerEls = document.querySelectorAll(".answer");
+    answerEls.forEach(answerEls => {
+        if(answerEls.checked){
+          return answerEl.id;
+        }
+    });
 
-
+    return undefined;
 }
 
 submitBtn.addEventListener("click", () => {
-    currentQuiz++;
+    //Check to see the answer
+    const answer = getSelected();
+    if(answer) {
+        currentQuiz++;
+        if(currentQuiz < quizData.length){
 
-    loadQuiz();
+            loadQuiz();
+            } else {
+              //TODO: Show results
+                alert("You finished, get yourself a glass of Sobo");
+            }
+    
+    
+       
+    }
+
+    
 });

@@ -36,6 +36,10 @@ ul li {
     font-size: 1.2rem;
     margin: 1rem 0;
 }
+ul li label {
+    cursor: pointer;
+}
+
 button {
     background-color: #8e44ad;
     border: none;
