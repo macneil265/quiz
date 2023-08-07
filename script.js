@@ -73,13 +73,16 @@ function loadQuiz() {
 //code for the answer
 function getSelected(){
     const answerEls = document.querySelectorAll(".answer");
-    answerEls.forEach(answerEls => {
-        if(answerEls.checked){
-          return answerEl.id;
+
+    let answer = undefined;
+
+    answerEls.forEach(answerEl => {
+        if(answerEl.checked){
+          answer =  answerEl.id;
         }
     });
 
-    return undefined;
+    return answer;
 }
 
 submitBtn.addEventListener("click", () => {
